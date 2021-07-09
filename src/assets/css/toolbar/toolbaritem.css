@@ -1,0 +1,12 @@
+.toolbaritem{
+  flex: 1;
+  text-align: center;
+  margin-top: 2px;
+  font-size: 14px;
+}
+.toolbaritem img
+{
+  height: 24px;
+  width: 24px;
+  vertical-align: center;
+}

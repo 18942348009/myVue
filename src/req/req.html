@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+   new Promise((resolve,reject)=>{
+       setTimeout(()=>{
+              console.log("5秒之后打印我");
+         },
+       5000)
+       resolve("测试啊");
+
+   }).then((e)=>{
+        console.log(e);
+       return new Promise((resolve,reject)=>{
+         resolve("先执行上面的再执行我")
+       })
+       .then((e)=>{
+         console.log(e);
+       })
+   })
+
+
+   /*在取得两个结果都取得之后统一返回*/
+   Promise.all([new Promise((resolve, reject) => {
+       setTimeout(() => {
+         resolve({name: 'why', age: 18})
+       }, 2000)
+       }),
+       new Promise((resolve, reject) => {
+         setTimeout(() => {
+           resolve({name: 'kobe', age: 19})
+         }, 1000)
+       })
+   ]).then(result=>{
+     console.log(result)
+   })
+</script>
+</body>
+</html>
