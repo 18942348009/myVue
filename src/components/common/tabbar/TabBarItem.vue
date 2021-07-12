@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "toolbaritem",
+  name: "TabBarItem",
   props:{
     path:{
       type:String,
@@ -24,6 +24,9 @@ export default {
       type:String,
       default:'red'
     }
+  },
+  created() {
+
   },
   data(){
     return {activevalue : false}
@@ -46,5 +49,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/toolbar/toolbaritem.css";
+@import "../../../assets/css/toolbar/toolbaritem.css";
 </style>

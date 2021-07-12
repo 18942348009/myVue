@@ -23,9 +23,14 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json','.css'],
     alias: {
       '@': resolve('src'),
+      'assets': resolve('src/assets'),
+      'common': resolve('src/common'),
+      'components': resolve('src/components'),
+      'network': resolve('src/network'),
+      'views': resolve('src/views'),
     }
   },
   module: {

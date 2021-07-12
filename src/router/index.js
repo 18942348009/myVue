@@ -3,10 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const  home = ()=>import("../view/home/home");
-const  category = ()=>import("../view/category/category");
-const  shopcart = ()=>import("../view/shopcart/shopcart");
-const  profile = ()=>import("../view/profile/profile");
+const  home = ()=>import("../views/home/home");
+const  category = ()=>import("../views/category/category");
+const  shopcart = ()=>import("../views/shopcart/shopcart");
+const  profile = ()=>import("../views/profile/profile");
 
 /*解决重复点击路由报错问题*/
 const originalPush = Router.prototype.push
