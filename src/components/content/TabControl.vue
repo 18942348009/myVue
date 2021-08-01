@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-control">
+    <div class="tabdiv">
       <div class="tabcontrolitem" v-for="(title,index) in titles" :key="index"
            @click="tabcontrolitemClk(index)"
            :class="{itemActive: currentIndex === index}">
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
- .tab-control{
+ .tabdiv{
    display: flex;
    font-size: 15px;
    width: 100%;

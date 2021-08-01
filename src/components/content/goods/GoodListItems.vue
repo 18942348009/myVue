@@ -1,6 +1,6 @@
 <template>
   <div class="goodListItem">
-    <img :src="goodsItem.show.img" alt="">
+    <img :src="getImg" alt="" @load="imageLoad" @click="goDetail(goodsItem.iid)">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -18,6 +18,49 @@ export default {
       default(){
         return {}
       }
+    }
+  },
+  methods:{
+
+    //防止t图片没加载导致滚动计算不到正确到高度
+    imageLoad()
+    {
+      let path = this.$route.path;
+      if ("/home" == path || "/" == path) {
+        this.$bus.$emit('itemImageLoad')   //通过事件总线调用
+      }else if ("/detail" == path)
+      {
+        this.$bus.$emit('itemImageLoadDetail')
+      }
+    },
+    goDetail(iid)
+    {
+      this.$router.push({
+        path:"/detail",
+        query: {
+          iid:iid
+        }
+      })
+    }
+  },
+  computed: {
+    getImg() {
+
+      if(this.goodsItem.img)
+      {
+        return  this.goodsItem.img;
+      }
+      else if(this.goodsItem.image )
+      {
+        return this.goodsItem.image;
+      }else if(this.goodsItem.show.img)
+      {
+        return this.goodsItem.show.img
+      }
+      else {
+        return ""
+      }
+
     }
   }
 }

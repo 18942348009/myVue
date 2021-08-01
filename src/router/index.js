@@ -3,10 +3,11 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const  home = ()=>import("../views/home/home");
+const  home = ()=>import("views/home/home");
 const  category = ()=>import("../views/category/category");
 const  shopcart = ()=>import("../views/shopcart/shopcart");
 const  profile = ()=>import("../views/profile/profile");
+const  detail =()=>import("views/detail/Detail");
 
 /*解决重复点击路由报错问题*/
 const originalPush = Router.prototype.push
@@ -46,6 +47,13 @@ const routes = [
     component:profile,
     meta:{
       title:"我的"
+    }
+  },
+  {
+    path: "/detail",
+    component:detail,
+    meta: {
+      title: "详情页"
     }
   }
 ]
